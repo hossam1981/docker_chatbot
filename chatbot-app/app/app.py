@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import redis
 from pymongo import MongoClient
 import requests
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for the entire app
 
 # Redis setup
 r = redis.Redis(host='redis', port=6379, db=0)

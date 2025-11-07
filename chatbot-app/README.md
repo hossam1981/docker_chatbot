@@ -52,13 +52,15 @@ chatbot-app/
    ```bash
    docker-compose ps
    ```
+   
+file:///C:/Users/A854031/docker_chatbot/chatbot-app/test.html
 
 4. **Access the chatbot:**
    - **API Endpoint:** `http://localhost:8080/chat`
    - **Direct Flask App:** `http://localhost:5000/chat` (if ports are exposed)
    - **MongoDB:** `localhost:27017`
    - **Redis:** `localhost:6379`
-   - **LLaMA API:** `http://localhost:8000/generate`
+   - **LLaMA API:** `http://localhost:8001/generate`
 
 ## 🧪 Testing the Application
 
@@ -282,3 +284,14 @@ For questions or issues:
 ---
 
 **Happy Chatting! 🎉**
+
+# Web Interface Testing
+file:///C:/Users/A854031/docker_chatbot/chatbot-app/test.html
+
+docker-compose ps
+
+# Test the main chatbot API through nginx:
+Invoke-RestMethod -Uri "http://localhost:8080/chat" -Method POST -ContentType "application/json" -Body '{"message": "Hello, how are you?"}'
+
+#  test the LLaMA API directly on the port:
+Invoke-RestMethod -Uri "http://localhost:8001/generate" -Method POST -ContentType "application/json" -Body '{"prompt": "What is Docker?"}'
